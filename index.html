@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SEO- &amp; GEO-audit en groeistrategie — Mr. Sorelli | InTooDeep</title>
+<style>
+  :root{
+    --ink:#1a1410; --paper:#faf7f2; --wine:#6e1423; --wine-light:#9e2a3c;
+    --gold:#b08d57; --gold-soft:#c9a877; --muted:#6b5d52; --line:#e3dace;
+    --card:#ffffff; --good:#2f6b4f; --warn:#b5651d; --bad:#9e2a3c;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:Georgia,'Iowan Old Style',serif; color:var(--ink);
+    background:var(--paper); line-height:1.6; font-size:16.5px;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,h4{font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.2;letter-spacing:-.01em}
+  header.hero{
+    background:linear-gradient(160deg,#2a0e13 0%,var(--wine) 55%,#4a0f1a 100%);
+    color:#f4ece2;padding:56px 0 46px;position:relative;overflow:hidden;
+  }
+  header.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;
+    background:radial-gradient(circle,rgba(176,141,87,.35),transparent 70%);}
+  .eyebrow{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;
+    letter-spacing:.26em;font-size:11.5px;color:var(--gold-soft);margin:0 0 16px}
+  header.hero h1{font-size:34px;margin:0 0 12px;color:#fff;font-weight:700}
+  header.hero p.sub{font-size:18px;color:#e8d9c4;margin:0;max-width:620px;font-family:Georgia,serif;font-style:italic}
+  .meta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:13px;color:#dcc7b0;letter-spacing:.03em}
+  .meta-row span b{color:#fff;font-weight:600}
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:.15em;color:var(--wine);margin:0 0 8px}
+  h2.sh{margin-top:52px;padding-top:26px;border-top:1px solid var(--line)}
+  h2 + .lead{font-size:24px;font-family:Georgia,serif;margin:0 0 20px;color:var(--ink);line-height:1.28}
+  h3{font-size:19px;margin:34px 0 12px;color:var(--ink)}
+  h4{font-size:15px;margin:0 0 6px;color:var(--wine-light);text-transform:uppercase;letter-spacing:.06em}
+  p{margin:0 0 15px}
+  a{color:var(--wine-light)}
+  strong{color:var(--ink)}
+  .kicker{color:var(--muted);font-size:15px;font-style:italic}
+  ul,ol{margin:0 0 15px;padding-left:22px}
+  li{margin:0 0 8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 24px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 24px}
+  @media(max-width:680px){.grid2,.grid3{grid-template-columns:1fr}header.hero h1{font-size:28px}}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-align:center}
+  .stat .n{font-family:'Helvetica Neue',Arial,sans-serif;font-size:28px;font-weight:700;color:var(--wine);line-height:1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:7px;font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.35}
+  table{width:100%;border-collapse:collapse;margin:10px 0 24px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--muted);background:#f3ede3}
+  td.sev{white-space:nowrap;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:700}
+  .pill{display:inline-block;padding:3px 10px;border-radius:20px;font-family:'Helvetica Neue',Arial,sans-serif;
+    font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+  .p-hi{background:#f6dede;color:var(--bad)}
+  .p-md{background:#f7e7d3;color:var(--warn)}
+  .p-lo{background:#e2ede6;color:var(--good)}
+  .finding{border-left:4px solid var(--line);padding:2px 0 2px 20px;margin:0 0 24px}
+  .finding.hi{border-color:var(--bad)}
+  .finding.md{border-color:var(--warn)}
+  .finding h4{margin-bottom:8px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .finding p{margin:0}
+  .callout{border-radius:10px;padding:16px 20px;margin:0 0 22px;font-size:15.5px}
+  .callout p{margin:0}
+  .callout.wine{background:#f6ecec;border:1px solid #e6cccc}
+  .callout.gold{background:#f7f0e2;border:1px solid #e6d6b8}
+  .callout.green{background:#e9f2ec;border:1px solid #cfe2d5}
+  .callout .t{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;
+    letter-spacing:.08em;color:var(--wine);margin:0 0 6px}
+  .callout.green .t{color:var(--good)}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+  .pillar .pn{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold)}
+  .pillar h4{font-size:18px;text-transform:none;letter-spacing:-.01em;color:var(--ink);margin:6px 0 8px}
+  .pillar p{margin:0;font-size:14.5px}
+  .partband{background:linear-gradient(135deg,#2a0e13,var(--wine));color:#f4ece2;border-radius:14px;
+    padding:24px 28px;margin:6px 0 30px;position:relative;overflow:hidden}
+  .partband::after{content:"";position:absolute;right:-40px;bottom:-60px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(176,141,87,.3),transparent 70%)}
+  .partband .k{font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:.24em;
+    font-size:11px;color:var(--gold-soft)}
+  .partband .pt{font-family:'Helvetica Neue',Arial,sans-serif;font-size:24px;font-weight:700;color:#fff;
+    margin:8px 0 6px;letter-spacing:-.01em}
+  .partband p{margin:0;color:#e8d9c4;font-style:italic;max-width:620px;font-size:15px}
+  .step{display:flex;gap:18px;margin:0 0 22px;align-items:flex-start}
+  .step .num{flex:0 0 48px;height:48px;border-radius:50%;background:var(--wine);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(110,20,35,.25)}
+  .step .num svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .step .body{flex:1;padding-top:3px}
+  .step .body .ph{display:block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+  .step .body b{display:block;font-family:'Helvetica Neue',Arial,sans-serif;font-size:16px;margin-bottom:1px}
+  .step .body .tag{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--muted);letter-spacing:.03em;font-weight:400}
+  .quote{background:#241016;color:#f0e2d4;border-radius:12px;padding:24px 26px;margin:22px 0;font-size:15.5px;line-height:1.55}
+  .quote .lbl{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:12px}
+  .quote em{color:#fff}
+  .quote strong{color:#fff}
+  footer{background:#241016;color:#d8c6b4;padding:38px 0;font-size:14px}
+  footer a{color:var(--gold-soft)}
+  footer h3{color:#fff;font-size:19px;margin:0 0 10px}
+  .toc{font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px;columns:2;column-gap:30px;margin-top:6px}
+  .toc a{display:block;padding:5px 0;text-decoration:none;color:var(--muted);border-bottom:1px solid transparent}
+  .toc a:hover{color:var(--wine)}
+  .toc .grp{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);
+    padding:12px 0 4px;font-weight:700}
+  @media(max-width:680px){.toc{columns:1}}
+  .disc{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:10px}
+  @media print{header.hero,.partband{background:var(--wine)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{font-size:11.5pt}section{padding:22px 0}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Technische SEO- &amp; GEO-audit &middot; Opgesteld voor Mr.&nbsp;Sorelli</p>
+    <h1>Een topcollectie verdient topvindbaarheid</h1>
+    <p class="sub">Wat er al sterk staat, waar de onbenutte kansen liggen, en het plan om ze om te zetten in bezoekers en bestellingen.</p>
+    <div class="meta-row">
+      <span><b>Voor:</b> Mr.&nbsp;Sorelli</span>
+      <span><b>Door:</b> InTooDeep</span>
+      <span><b>Datum:</b> juli 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="kort">
+  <h2>In het kort</h2>
+  <p class="lead">Jullie collectie is beter dan die van de webshops die nu bovenaan staan. Twee dingen houden de koper tegen.</p>
+  <p>Een gecureerde collectie, echte criticiscores, een persoonlijk verhaal per wijnhuis &mdash; wat ontbreekt zit niet in de wijnen, maar in de <em>vindbaarheid</em>:</p>
+
+  <div class="grid2">
+    <div class="pillar">
+      <div class="pn">Punt 1 &middot; Vindbaarheid</div>
+      <h4>De koper komt jullie niet tegen</h4>
+      <p>Wie "Barolo kopen" zoekt &mdash; of het aan een AI vraagt &mdash; komt bij Wijnvoordeel, Wijnbeurs of Dirck3 uit, niet bij jullie. De autoriteit die jullie onderscheidt (scores, herkomst, curatie) is nog niet leesbaar voor Google en AI.</p>
+    </div>
+    <div class="pillar">
+      <div class="pn">Punt 2 &middot; Fundament</div>
+      <h4>En de site laadt te traag</h4>
+      <p>Onze meting toont een serverresponstijd van ~2&nbsp;seconden, ruim boven Google's norm. Snelheid remt zowel de ranking als de conversie: het knijpt stilletjes de opbrengst af.</p>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="t">Het goede nieuws</div>
+    <p>Geen "de site is stuk"-verhaal &mdash; het ruwe materiaal staat er al. <strong>Deel&nbsp;1</strong> laat zien wat er staat en waar de kansen liggen; <strong>Deel&nbsp;2</strong> hoe we ze verzilveren.</p>
+  </div>
+
+  <nav class="toc">
+    <span class="grp">Deel 1 &middot; Technische audit</span>
+    <a href="#sterk">1.1 &middot; Wat er al goed staat</a>
+    <a href="#kansen">1.2 &middot; Waar de kansen liggen</a>
+    <a href="#geo">1.3 &middot; De grootste kans: GEO</a>
+    <span class="grp">Deel 2 &middot; Strategie</span>
+    <a href="#aanpak">2.1 &middot; Hoe we dit oplossen</a>
+    <a href="#resultaat">2.2 &middot; Wat het oplevert</a>
+    <a href="#stap">2.3 &middot; De volgende stap</a>
+  </nav>
+</section>
+
+<!-- ============ DEEL 1 ============ -->
+<section>
+  <div class="partband">
+    <div class="k">Deel 1</div>
+    <div class="pt">De technische audit</div>
+    <p>O.b.v. een technische crawl van de live site (broncode, structured data, sitemaps) en eigen prestatiemetingen, juli&nbsp;2026.</p>
+  </div>
+
+  <h2 id="sterk">1.1 &middot; Wat er al goed staat</h2>
+  <p class="lead">We beginnen met wat werkt &mdash; want daar bouwen we op voort.</p>
+  <p>Op belangrijke punten is het fundament juist goed op orde. Dat betekent: niet repareren wat stuk is, maar de aanwezige kwaliteit zichtbaar maken.</p>
+
+  <div class="grid3">
+    <div class="stat"><div class="n">55</div><div class="l">gecureerde wijnen</div></div>
+    <div class="stat"><div class="n">tot&nbsp;99</div><div class="l">punten van internationale critici</div></div>
+    <div class="stat"><div class="n">31</div><div class="l">wijnhuizen met een eigen verhaal</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card"><h4>Sterke productpagina's</h4><p style="margin:0">Rake, zoekwoordrijke titels en complete prijs- en voorraaddata (<em>Product/Offer</em>). Precies zoals het hoort.</p></div>
+    <div class="card"><h4>Nette technische basis</h4><p style="margin:0">Alt-teksten op afbeeldingen, correcte meertaligheid (NL/EN via hreflang), en een vertrouwde, breed onderhoudbare basis (WordPress/WooCommerce met Yoast).</p></div>
+    <div class="card"><h4>Uitmuntende inhoud</h4><p style="margin:0">Echte scores, herkomstverhalen, curatie &mdash; het ruwe materiaal om zowel in Google als in AI-antwoorden te domineren.</p></div>
+    <div class="card"><h4>Bouwstenen aanwezig</h4><p style="margin:0">31 producentpagina's bestaan al in het systeem. Nog niet ontsloten, maar het fundament ligt er &mdash; dat scheelt werk.</p></div>
+  </div>
+
+  <h2 id="kansen" class="sh">1.2 &middot; Waar de kansen liggen</h2>
+  <p class="lead">Zeven concrete punten &mdash; geen fouten, maar onbenutte voorsprong.</p>
+  <p>Geprioriteerd op impact, zodat helder is waar de snelste winst zit.</p>
+
+  <table>
+    <thead><tr><th>#</th><th>Kans</th><th>Wat het nu kost</th><th>Prio</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Kernpagina's zonder zoekwoorden (homepage &amp; collectie); collectie mist een H1-kop</td><td>Misgelopen ranking op de belangrijkste termen</td><td class="sev"><span class="pill p-hi">Hoog</span></td></tr>
+      <tr><td>2</td><td>Vrijwel onvindbaar op commerciële termen ("Barolo kopen", "Amarone kopen")</td><td>Verkeer &amp; omzet lekken naar volumewebshops</td><td class="sev"><span class="pill p-hi">Hoog</span></td></tr>
+      <tr><td>3</td><td>Criticiscores staan in de tekst, maar niet als <em>Review</em>-data</td><td>Geen sterren; niet citeerbaar door AI &rarr; zie&nbsp;1.3</td><td class="sev"><span class="pill p-hi">Hoog</span></td></tr>
+      <tr><td>4</td><td>Kennisbank vrijwel leeg; twee demo-artikelen met plaatshoudertekst nog live</td><td>Topische autoriteit onbenut; slordig signaal</td><td class="sev"><span class="pill p-hi">Hoog</span></td></tr>
+      <tr><td>5</td><td>Slechts 2 categorieën; 31 producentpagina's niet ontsloten</td><td>Geen landingspagina's voor hoe men zoekt</td><td class="sev"><span class="pill p-md">Middel</span></td></tr>
+      <tr><td>6</td><td>Trage laadtijd: serverrespons ~2&nbsp;s, volledig geladen na ~7&ndash;8&nbsp;s</td><td>Ranking- én conversierem, vooral mobiel</td><td class="sev"><span class="pill p-md">Middel</span></td></tr>
+      <tr><td>7</td><td>Kleine hygiëne: geen merk-entiteit, een dubbele merk-URL (<em>francesco-</em> én <em>fransesco-massetti</em>) en een slug-typefout (<em>&hellip;-2021-evlio-cogno</em> voor de 2020 Elvio Cogno)</td><td>Zwakker herkenningssignaal</td><td class="sev"><span class="pill p-lo">Laag</span></td></tr>
+    </tbody>
+  </table>
+
+  <p class="kicker" style="margin-bottom:22px">De vier hoog-geprioriteerde kansen, kort toegelicht:</p>
+
+  <div class="finding hi">
+    <h4>1 &middot; De kernpagina's vertellen Google niets <span class="pill p-hi">Hoog</span></h4>
+    <p>De homepage heet in Google letterlijk <em>"Homepage - Mr Sorelli"</em>, zonder zoekwoord, en de collectiepagina mist een H1-kop. Jullie productpagina's laten zien dat het wél kan &mdash; de aanpassing is dus klein en gericht, met directe impact op positie en doorklik.</p>
+  </div>
+  <div class="finding hi">
+    <h4>3 &middot; De scores staan er wél, maar zijn niet "leesbaar" <span class="pill p-hi">Hoog</span></h4>
+    <p>De scores van Parker, Suckling en Vinous staan in de tekst, maar niet als beoordelingsdata (<em>Review</em>) gemarkeerd. Gevolg: geen sterren in Google, en &mdash; belangrijker &mdash; onleesbaar voor AI-zoekmachines. Andere wijnwebshops tonen in Google al sterren &mdash; maar op gewone klantreviews; de <em>onafhankelijke criticiscores</em> structureert niemand. Juist dat is een hoogwaardiger signaal dat alleen jullie in huis hebben. Dit is de brug naar de grootste kans (1.3).</p>
+  </div>
+  <div class="finding hi">
+    <h4>4 &middot; Kennisbank leeg &mdash; met plaatshoudertekst live <span class="pill p-hi">Hoog</span></h4>
+    <p>Feitelijk één echt artikel (terroir); de twee andere zijn demo's met plaatshoudertekst die nog gepubliceerd staan &mdash; en zelfs via de sitemap actief aan Google worden aangeboden. Onverzorgd voor een premium merk, en een gemiste kans op autoriteit in precies de onderwerpen waar kopers research doen.</p>
+  </div>
+  <div class="finding md">
+    <h4>6 &middot; Snelheid als stille rem <span class="pill p-md">Middel</span></h4>
+    <p>Direct gemeten: serverrespons ~2&nbsp;seconden (Google noemt onder 0,8&nbsp;s "goed"), volledig geladen na ~7&ndash;8&nbsp;s. Oorzaak vooral serverkant en de page-builder (WPBakery): ~88 verzoeken en 31 scripts per pagina. Het goede nieuws: grotendeels op te lossen binnen de bestaande site, zonder verbouwing (zie&nbsp;2.1).</p>
+    <p class="disc">Laadtijd twee keer direct in de browser gemeten (juli 2026); de officiële Core-Web-Vitals-score volgt met een PageSpeed-meting.</p>
+  </div>
+
+  <h2 id="geo" class="sh">1.3 &middot; De grootste kans: GEO</h2>
+  <p class="lead">De koper van een fles van &euro;150 vraagt het straks niet aan Google, maar aan een AI.</p>
+  <p><strong>GEO</strong> (Generative Engine Optimization) is de opvolger van klassieke SEO: <strong>de bron zijn die AI-antwoordmachines citeren</strong> &mdash; AI Overviews, ChatGPT, Perplexity. Wie vraagt <em>"welke Barolo onder de &euro;150 is een goede keuze?"</em> krijgt een handvol wijnen en winkels terug. Wie daar niet tussen staat, bestaat voor die koper niet.</p>
+
+  <div class="callout wine">
+    <div class="t">Waarom juist dít merk hier kan winnen</div>
+    <p>GEO beloont wat de volumewebshops <em>niet</em> hebben en jullie <em>wél</em>: echte autoriteit &mdash; onafhankelijke scores, herkomstverhalen, curatie. Concurrenten spelen op prijs; AI-antwoorden kiezen op gezag. Dit is dus een baan waarin Mr.&nbsp;Sorelli kán winnen.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="stat"><div class="n">55</div><div class="l">wijnen met scores &mdash; nu onzichtbaar voor AI</div></div>
+    <div class="stat"><div class="n">31</div><div class="l">producentverhalen als citeerbare autoriteit</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">daarvan nu machine-leesbaar</div></div>
+  </div>
+
+  <div class="quote">
+    <div class="lbl">Zo ziet winnen eruit &mdash; een AI-antwoord dat jullie citeert</div>
+    <p style="margin:0"><em>"Voor een Barolo rond de &euro;100 met een uitstekende reputatie is de <strong>Barolo Bricco Pernice 2020 van Elvio Cogno</strong> een sterke keuze &mdash; 96&ndash;97 punten van internationale critici. Verkrijgbaar bij gespecialiseerde Italiaanse wijnhandel <strong>Mr.&nbsp;Sorelli</strong>."</em></p>
+  </div>
+
+  <div class="callout gold">
+    <div class="t">Het venster staat nu open</div>
+    <p>De meeste wijnwebshops optimaliseren voor prijs; de enkele die wél op kwaliteit spelen, laten hun criticiscores als platte tekst staan &mdash; voor een AI onleesbaar. Wie nú de scores, verhalen en merk-entiteit gestructureerd neerzet, wordt de standaardbron die AI-antwoorden aanhalen &mdash; en die voorsprong is lastig in te halen.</p>
+  </div>
+</section>
+
+<!-- ============ DEEL 2 ============ -->
+<section>
+  <div class="partband">
+    <div class="k">Deel 2</div>
+    <div class="pt">De strategie</div>
+    <p>Van analyse naar resultaat &mdash; een gefaseerde aanpak die de aanwezige kwaliteit ontsluit.</p>
+  </div>
+
+  <h2 id="aanpak">2.1 &middot; Hoe we dit oplossen</h2>
+  <p class="lead">Eerst het fundament en de snelle winst, dan de structuur en autoriteit voor blijvende groei.</p>
+
+  <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="body"><span class="ph">Fase 1</span><b>Fundament &amp; quick wins</b> <span class="tag">weken 1&ndash;4</span>
+    <p style="margin:8px 0 0">Kernpagina-titels en de ontbrekende H1 herschrijven; scores uitrollen als <em>Review</em>-data (sterren in Google); merk-entiteit vastleggen; plaatshouder-artikelen en dubbele merk-URL opruimen. Zichtbare winst binnen weken &mdash; kansen 1, 3, 4 en 7.</p></div></div>
+
+  <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><line x1="12" y1="18" x2="15.5" y2="12.5"/><circle cx="12" cy="18" r="1.5" fill="#fff" stroke="none"/></svg></div><div class="body"><span class="ph">Fase 2</span><b>Snelheid &mdash; binnen de bestaande site</b> <span class="tag">parallel</span>
+    <p style="margin:8px 0 0">Geen verbouwing: serverrespons en caching verbeteren, afbeeldingen en scripts optimaliseren, de zwaarste page-builder-elementen lichter maken. Een merkbaar snellere site (kans&nbsp;6) zonder migratie of risico. <span class="disc" style="display:inline">Een volledige herbouw is hooguit iets voor de lange termijn &mdash; nu niet nodig.</span></p></div></div>
+
+  <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="4.5" rx="1"/><rect x="3" y="16" width="6" height="4.5" rx="1"/><rect x="15" y="16" width="6" height="4.5" rx="1"/><path d="M12 7.5V13"/><path d="M6 16v-3h12v3"/></svg></div><div class="body"><span class="ph">Fase 3</span><b>Structuur &amp; landingspagina's</b> <span class="tag">maand 2&ndash;3</span>
+    <p style="margin:8px 0 0">Landingspagina's voor hoe men zoekt: per streek (Piemonte, Veneto), druif/appellatie (Barolo, Amarone, Brunello) en wijnhuis. De 31 bestaande producentpagina's aankleden en met interne links binden tot autoriteitsclusters &mdash; kansen 2 en 5.</p></div></div>
+
+  <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><div class="body"><span class="ph">Fase 4</span><b>GEO, content &amp; momentum</b> <span class="tag">doorlopend</span>
+    <p style="margin:8px 0 0">Kennisbank vullen met content die kopers én AI aanhalen (terroir, jaargangen, spijs-wijn), voorzien van FAQ-data. Maandelijks nieuwe pagina's, met monitoring via een transparant dashboard zodat we op data bijsturen.</p></div></div>
+
+  <h2 id="resultaat" class="sh">2.2 &middot; Wat het oplevert</h2>
+  <p class="lead">Technische winst binnen weken, samengestelde groei over de maanden.</p>
+  <table>
+    <thead><tr><th>Horizon</th><th>Wat je mag verwachten</th></tr></thead>
+    <tbody>
+      <tr><td class="sev">Weken</td><td>Zoekwoordrijke titels, sterren-beoordelingen in Google, een merkbaar snellere site.</td></tr>
+      <tr><td class="sev">Maanden</td><td>Ranking op commerciële zoektermen via de nieuwe landingspagina's; eerste vermeldingen als bron in AI-antwoorden.</td></tr>
+      <tr><td class="sev">6&ndash;12&nbsp;mnd</td><td>Een groeiende stroom organische bezoekers die zichzelf opbouwt &mdash; vindbaarheid als merkbezit.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout wine">
+    <div class="t">De business case</div>
+    <p>Bij een gemiddelde orderwaarde rond &euro;120 is de drempel laag: een handvol extra bestellingen per maand verdient de inspanning al terug. En anders dan advertenties &mdash; die stoppen zodra je stopt met betalen &mdash; blijft organische vindbaarheid maanden en jaren binnenhalen. Een investering in een activum, geen kostenpost.</p>
+  </div>
+
+  <h2 id="stap" class="sh">2.3 &middot; De volgende stap</h2>
+  <p class="lead">Een vrijblijvende doorloop van de audit &mdash; en een plan op maat.</p>
+  <p>Graag lopen we deze analyse in 20&ndash;30 minuten met je door, laten we live zien waar de winst zit, en vertalen we het naar een concreet plan en tijdlijn voor Mr.&nbsp;Sorelli. Volledig vrijblijvend &mdash; gewoon omdat dit merk het verdient om gevonden te worden.</p>
+  <div class="callout green">
+    <div class="t">Zo plannen we het in</div>
+    <p>Stuur een berichtje terug met een moment dat schikt, dan zetten we een korte (video)call op. Iets wat je vooraf uitgelicht wilt zien? Laat het weten.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <h3>InTooDeep</h3>
+    <p style="margin:0 0 6px">SEO- &amp; GEO-analyse en groeistrategie voor Mr.&nbsp;Sorelli &middot; juli 2026</p>
+    <p style="margin:0 0 14px">[naam] &middot; [e-mailadres] &middot; [telefoon] &middot; [website]</p>
+    <p style="margin:0" class="disc">Bevindingen o.b.v. een technische analyse van de publieke site (broncode, structured data, sitemaps) en eigen prestatiemetingen, juli&nbsp;2026. De officiële Core-Web-Vitals-score wordt met een PageSpeed-meting bevestigd.</p>
+  </div>
+</footer>
+
+</body>
+</html>
