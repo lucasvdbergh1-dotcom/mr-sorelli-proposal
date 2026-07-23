@@ -81,6 +81,10 @@
     text-transform:uppercase;color:var(--gold)}
   .pillar h4{font-size:18px;text-transform:none;letter-spacing:-.01em;color:var(--ink);margin:6px 0 8px}
   .pillar p{margin:0;font-size:14.5px}
+  figure.fig{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 22px 16px;margin:2px 0 28px}
+  figure.fig h4{margin-bottom:14px}
+  figure.fig svg{width:100%;height:auto;display:block}
+  figure.fig figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:12px;line-height:1.5}
   .partband{background:linear-gradient(135deg,#2a0e13,var(--wine));color:#f4ece2;border-radius:14px;
     padding:24px 28px;margin:6px 0 30px;position:relative;overflow:hidden}
   .partband::after{content:"";position:absolute;right:-40px;bottom:-60px;width:200px;height:200px;
@@ -277,6 +281,43 @@
 
   <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="4.5" rx="1"/><rect x="3" y="16" width="6" height="4.5" rx="1"/><rect x="15" y="16" width="6" height="4.5" rx="1"/><path d="M12 7.5V13"/><path d="M6 16v-3h12v3"/></svg></div><div class="body"><span class="ph">Fase 3</span><b>Structuur &amp; landingspagina's</b> <span class="tag">maand 2&ndash;3</span>
     <p style="margin:8px 0 0">Landingspagina's voor hoe men zoekt: per streek (Piemonte, Veneto), druif/appellatie (Barolo, Amarone, Brunello) en wijnhuis. De 31 bestaande producentpagina's aankleden en met interne links binden tot autoriteitsclusters &mdash; kansen 2 en 5.</p></div></div>
+
+  <figure class="fig">
+    <h4>Zo ziet de nieuwe structuur eruit &mdash; voorbeeld: het Barolo-cluster</h4>
+    <svg viewBox="0 0 760 356" role="img" aria-label="Diagram van het Barolo-autoriteitscluster: streekpagina, appellatiepagina als hub, wijnhuispagina en productpagina, onderling verbonden met interne links; een kennisbank-artikel voedt de hub" font-family="'Helvetica Neue',Arial,sans-serif">
+      <!-- verticale ruggengraat -->
+      <line x1="380" y1="78" x2="380" y2="112" stroke="#b08d57" stroke-width="1.8"/>
+      <line x1="380" y1="166" x2="380" y2="200" stroke="#b08d57" stroke-width="1.8"/>
+      <line x1="380" y1="254" x2="380" y2="288" stroke="#b08d57" stroke-width="1.8"/>
+      <!-- niveau 1: streek -->
+      <rect x="280" y="24" width="200" height="54" rx="10" fill="#ffffff" stroke="#c9a877" stroke-width="1.4"/>
+      <text x="380" y="47" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1410">Piemonte</text>
+      <text x="380" y="66" text-anchor="middle" font-size="11" fill="#6b5d52">Landingspagina per streek</text>
+      <text x="498" y="55" font-size="12" font-style="italic" fill="#6b5d52" font-family="Georgia,serif">+ Veneto &mdash; eigen cluster (Amarone)</text>
+      <!-- niveau 2: appellatie (hub) -->
+      <rect x="280" y="112" width="200" height="54" rx="10" fill="#6e1423"/>
+      <text x="380" y="135" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Barolo</text>
+      <text x="380" y="154" text-anchor="middle" font-size="11" fill="#e8d9c4">Appellatiepagina &mdash; de hub</text>
+      <!-- kennisbank-artikel voedt de hub -->
+      <rect x="545" y="105" width="200" height="68" rx="10" fill="#f7f0e2" stroke="#b08d57" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="645" y="126" text-anchor="middle" font-size="9.5" font-weight="700" letter-spacing="1.5" fill="#b08d57">KENNISBANK</text>
+      <text x="645" y="143" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1410">&#8220;Barolo vs. Brunello&#8221;</text>
+      <text x="645" y="160" text-anchor="middle" font-size="10.5" fill="#6b5d52">vergelijkingsartikel voedt de hub</text>
+      <line x1="545" y1="139" x2="490" y2="139" stroke="#b08d57" stroke-width="1.4" stroke-dasharray="5 4"/>
+      <polygon points="480,139 490,134.5 490,143.5" fill="#b08d57"/>
+      <!-- niveau 3: wijnhuis -->
+      <rect x="280" y="200" width="200" height="54" rx="10" fill="#ffffff" stroke="#c9a877" stroke-width="1.4"/>
+      <text x="380" y="223" text-anchor="middle" font-size="14" font-weight="700" fill="#1a1410">Elvio Cogno</text>
+      <text x="380" y="242" text-anchor="middle" font-size="11" fill="#6b5d52">Wijnhuispagina &mdash; bestaat al</text>
+      <text x="498" y="231" font-size="12" font-style="italic" fill="#6b5d52" font-family="Georgia,serif">+ 30 andere wijnhuispagina&#8217;s</text>
+      <!-- niveau 4: wijn -->
+      <rect x="280" y="288" width="200" height="54" rx="10" fill="#ffffff" stroke="#c9a877" stroke-width="1.4"/>
+      <text x="380" y="311" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1a1410">Bricco Pernice 2020</text>
+      <text x="380" y="330" text-anchor="middle" font-size="11" fill="#6b5d52">Productpagina &middot; 96&ndash;97 punten</text>
+      <text x="498" y="319" font-size="12" font-style="italic" fill="#6b5d52" font-family="Georgia,serif">+ 54 andere wijnen</text>
+    </svg>
+    <figcaption>Elke pagina linkt omhoog &eacute;n omlaag, en kennisbank-artikelen voeden de hub &mdash; zo bouwt het cluster als geheel autoriteit op rond de term waarop de koper zoekt ("Barolo kopen"). Vergelijkende artikelen zijn bovendien pr&eacute;cies het format dat AI-antwoorden het vaakst aanhalen. Dezelfde structuur herhalen we voor Amarone, Brunello en elke streek &mdash; en omdat de 31 wijnhuispagina's al bestaan, bouwen we het cluster op, niet vanaf nul.</figcaption>
+  </figure>
 
   <div class="step"><div class="num"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><div class="body"><span class="ph">Fase 4</span><b>GEO, content &amp; momentum</b> <span class="tag">doorlopend</span>
     <p style="margin:8px 0 0">Kennisbank vullen met content in de vorm die AI's aantoonbaar citeren: het antwoord voorop, vergelijkingen (Barolo vs. Brunello), definities en concrete cijfers &mdash; gericht op de machines waar jullie koper zit (ChatGPT en Google AI Overviews). Maandelijks nieuwe pagina's én bestaande actueel houden: recent bijgewerkte pagina's worden aantoonbaar vaker geciteerd. Monitoring via een transparant dashboard; AI-vermeldingen rapporteren we als maandtrend, want die bewegen van nature.</p></div></div>
